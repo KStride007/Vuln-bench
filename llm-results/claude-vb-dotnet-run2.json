@@ -1,0 +1,121 @@
+{
+  "findings": [
+    {
+      "file": "Cases/Handler01.vb",
+      "line": 39,
+      "cwe": 89,
+      "title": "SQL injection via string-concatenated query",
+      "confidence": "high"
+    },
+    {
+      "file": "Cases/Handler02.vb",
+      "line": 31,
+      "cwe": 78,
+      "title": "OS command injection via /bin/sh -c with user input",
+      "confidence": "high"
+    },
+    {
+      "file": "Cases/Handler03.vb",
+      "line": 23,
+      "cwe": 22,
+      "title": "Path traversal in file read",
+      "confidence": "high"
+    },
+    {
+      "file": "Cases/Handler04.vb",
+      "line": 10,
+      "cwe": 79,
+      "title": "Reflected XSS from unencoded query parameter",
+      "confidence": "high"
+    },
+    {
+      "file": "Cases/Handler05.vb",
+      "line": 17,
+      "cwe": 611,
+      "title": "XXE: DTD processing enabled with XmlUrlResolver",
+      "confidence": "high"
+    },
+    {
+      "file": "Cases/Handler06.vb",
+      "line": 15,
+      "cwe": 502,
+      "title": "Insecure deserialization with BinaryFormatter",
+      "confidence": "high"
+    },
+    {
+      "file": "Cases/Handler07.vb",
+      "line": 11,
+      "cwe": 328,
+      "title": "Weak password hashing with unsalted MD5",
+      "confidence": "high"
+    },
+    {
+      "file": "Cases/Handler08.vb",
+      "line": 11,
+      "cwe": 798,
+      "title": "Hard-coded admin password",
+      "confidence": "high"
+    },
+    {
+      "file": "Cases/Handler09.vb",
+      "line": 9,
+      "cwe": 601,
+      "title": "Open redirect to user-supplied URL",
+      "confidence": "high"
+    },
+    {
+      "file": "Cases/Handler10.vb",
+      "line": 18,
+      "cwe": 338,
+      "title": "Reset token from non-cryptographic PRNG (System.Random)",
+      "confidence": "high"
+    },
+    {
+      "file": "Cases/Handler11.vb",
+      "line": 26,
+      "cwe": 918,
+      "title": "SSRF: fetching arbitrary user-supplied URL",
+      "confidence": "high"
+    },
+    {
+      "file": "Cases/Handler12.vb",
+      "line": 10,
+      "cwe": 1333,
+      "title": "ReDoS via catastrophic backtracking regex without timeout",
+      "confidence": "high"
+    }
+  ],
+  "dependencies": [
+    {
+      "package": "Newtonsoft.Json",
+      "version": "9.0.1",
+      "cves": [
+        "CVE-2024-21907"
+      ]
+    },
+    {
+      "package": "log4net",
+      "version": "2.0.8",
+      "cves": [
+        "CVE-2018-1285"
+      ]
+    },
+    {
+      "package": "SharpZipLib",
+      "version": "1.2.0",
+      "cves": [
+        "CVE-2021-32840",
+        "CVE-2021-32841",
+        "CVE-2021-32842"
+      ]
+    },
+    {
+      "package": "System.Text.Json",
+      "version": "8.0.0",
+      "cves": [
+        "CVE-2024-30105",
+        "CVE-2024-43485"
+      ]
+    }
+  ]
+}

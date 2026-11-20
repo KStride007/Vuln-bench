@@ -44,7 +44,8 @@ def leaves(node, ancestors=()):
 
 
 def short_name(package):
-    return re.split(r"[:/]", package)[-1].lower()
+    # drop a Scala binary-version suffix (play_2.13 -> play): sbt "%%" declares the bare name
+    return re.sub(r"_\d+(\.\d+)*$", "", re.split(r"[:/]", package)[-1].lower())
 
 
 def detections(doc):
