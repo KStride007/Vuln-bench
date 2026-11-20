@@ -15,6 +15,7 @@ The answer key (which function is vulnerable) goes to a separate file, never int
 Usage:
   python3 tools/make_blind.py --app scala                 # writes blind-out/scala/ and blind-keys/scala.json
   python3 tools/make_blind.py --all --seed 7
+  python3 tools/make_blind.py --all --repos-out scan-repos   # one folder per app, to push as separate repos
 Score a result against the key:
   python3 tools/score.py --app scala --blind blind-keys/scala.json results.sarif
 Both output folders are git-ignored. Point scanners at blind-out/<app>/ only, ideally from a copy in a clean
@@ -178,12 +179,24 @@ def main():
     ap.add_argument("--out", default=os.path.join(ROOT, "blind-out"))
     ap.add_argument("--keys", default=os.path.join(ROOT, "blind-keys"))
     ap.add_argument("--seed", default="7")
+    ap.add_argument("--repos-out", help="also write one ready-to-push folder per app (vuln-bench-scan-APP) here, "
+                                        "for tools that scan a whole repository through a connector")
     args = ap.parse_args()
     apps = [d for d in ("vb-dotnet", "groovy", "scala", "objc") if os.path.isfile(os.path.join(ROOT, d, "manifest.json"))] \
         if args.all else [args.app]
     if not apps or apps == [None]:
         ap.error("give --app NAME or --all")
     ok = all([build(a, args.out, args.keys, args.seed) for a in apps])
+    if args.repos_out:
+        for a in apps:
+            src = os.path.join(args.out, "app-" + a.replace("-", ""))
+            dst = os.path.join(args.repos_out, "vuln-bench-scan-" + a.replace("-", ""))
+            if os.path.isdir(dst):
+                shutil.rmtree(dst)
+            shutil.copytree(src, dst)
+            with open(os.path.join(dst, "README.md"), "w") as fh:
+                fh.write("# Source for security tool evaluation\n\nSample application source. No build or run steps are provided.\n")
+            print("repo folder:", dst)
     sys.exit(0 if ok else 2)
 
 

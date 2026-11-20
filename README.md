@@ -163,3 +163,17 @@ of that line. The dependency ground truth was written from the author's own know
 agreeing with it is not independent confirmation. Audit of the 12 scan sessions: only Read and Glob calls, all inside
 the scan copy, none touching the answer key. A first set of runs had Bash available and a one-CVE-per-package prompt;
 it was discarded and rerun after both were fixed.
+
+### One repo per app, for connector-based scanners
+
+For a tool that scans a whole repository through a connector (for example a code-scanning platform linked to GitHub),
+generate one self-contained repo folder per app and push each as its own private repo. Coverage is then visible per
+language in the tool's own console, and a result with no findings can be told apart from a repo that was not scanned:
+
+```
+python3 tools/make_blind.py --all --repos-out scan-repos
+```
+
+Push each `scan-repos/vuln-bench-scan-*` folder as a separate repo, keep `blind-keys/` out of all of them, and score
+each repo's findings against its own key (`score.py --app APP --blind blind-keys/APP.json`). Keep the same `--seed`
+as earlier runs so results stay comparable.
