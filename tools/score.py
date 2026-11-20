@@ -13,6 +13,7 @@ Score = TPR - FPR, as in the OWASP Benchmark.
 Usage:
   score.py --app vb-dotnet  results.sarif [more.sarif ...] [--json out.json]
   score.py --app groovy     --selftest
+  (also: --app scala, --app objc)
 """
 import argparse
 import json
@@ -35,7 +36,12 @@ def function_range(path, lang, name):
                     if re.match(r"^\s*End Function\b", lines[j]):
                         return (i + 1, j + 1)
         return None
-    start_re = re.compile(r"^\s*static\s+\S+\s+%s\s*\(" % re.escape(name))
+    if lang == "scala":
+        start_re = re.compile(r"^\s*def\s+%s\s*[\(\[]" % re.escape(name))
+    elif lang == "objc":
+        start_re = re.compile(r"^\s*[+-]\s*\([^)]*\)\s*%s\s*:" % re.escape(name))
+    else:
+        start_re = re.compile(r"^\s*static\s+\S+\s+%s\s*\(" % re.escape(name))
     for i, line in enumerate(lines):
         if start_re.search(line):
             depth, seen = 0, False
@@ -54,7 +60,7 @@ def function_range(path, lang, name):
 def load_manifest(app_dir):
     with open(os.path.join(ROOT, app_dir, "manifest.json")) as fh:
         manifest = json.load(fh)
-    lang = "vb" if manifest["language"] == "VB.NET" else "groovy"
+    lang = manifest.get("language_key") or ("vb" if manifest["language"] == "VB.NET" else "groovy")
     for case in manifest["cases"]:
         path = os.path.join(ROOT, app_dir, case["file"])
         case["bad_range"] = function_range(path, lang, case["bad_function"])
@@ -176,7 +182,7 @@ def synth(manifest, mode):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--app", required=True, choices=["vb-dotnet", "groovy"])
+    ap.add_argument("--app", required=True, help="app folder, e.g. vb-dotnet, groovy, scala, objc")
     ap.add_argument("sarif", nargs="*")
     ap.add_argument("--json")
     ap.add_argument("--selftest", action="store_true")
