@@ -1,6 +1,7 @@
 {
   "app": "VulnGroovy",
   "language": "Groovy",
+  "language_key": "groovy",
   "framework": "Groovy 2.4 on the JDK built-in HTTP server",
   "scoring_unit": "Each case has a bad method (one flaw) and a good method (same behavior, flaw removed).",
   "cases": [
