@@ -9,6 +9,7 @@ was validated only on synthetic fixtures (--selftest), not on real tool output.
 Usage:
   score_sca.py --app vb-dotnet  osv-scanner.json
   score_sca.py --app groovy     --selftest
+  (also: --app scala, --app objc)
 """
 import argparse
 import json
@@ -112,7 +113,7 @@ def selftest(manifest):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--app", required=True, choices=["vb-dotnet", "groovy"])
+    ap.add_argument("--app", required=True, help="app folder")
     ap.add_argument("output", nargs="?")
     ap.add_argument("--selftest", action="store_true")
     args = ap.parse_args()

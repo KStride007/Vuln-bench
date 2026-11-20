@@ -1,6 +1,7 @@
 {
   "app": "VulnVb",
   "language": "VB.NET",
+  "language_key": "vb",
   "framework": "ASP.NET Core minimal hosting (Kestrel), net8.0",
   "scoring_unit": "Each case has a Bad function (one flaw) and a Good function (same behavior, flaw removed).",
   "cases": [
