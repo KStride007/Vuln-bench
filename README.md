@@ -57,8 +57,10 @@ H2 jar needs JDK 11+ to run, so compile on one and run on the other:
 
 ```
 cd scala
-JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 PATH=$JAVA_HOME/bin:$PATH \
-  scalac -cp /usr/share/java/h2.jar -d out $(find src/main -name '*.scala')
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 PATH=/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH
+mkdir -p out
+scalac -cp /usr/share/java/h2.jar -d out $(find src/main -name '*.scala')
+unset JAVA_HOME; export PATH=${PATH#/usr/lib/jvm/java-8-openjdk-amd64/bin:}   # back to JDK 11+ for running
 java -cp out:/usr/share/scala-2.11/lib/scala-library.jar:/usr/share/java/h2.jar vulnscala.Server 8082
 ```
 
