@@ -1,0 +1,216 @@
+{
+  "app": "VulnObjC",
+  "language": "Objective-C",
+  "language_key": "objc",
+  "framework": "GNUstep Foundation on Linux, BSD-socket HTTP server, sqlite3, OpenSSL",
+  "scoring_unit": "Each case class has a +bad: method (one flaw) and a +good: method (same behavior, flaw removed).",
+  "cases": [
+    {
+      "id": "case01",
+      "title": "SQL injection",
+      "cwe": 89,
+      "cwe_aliases": [
+        89,
+        564
+      ],
+      "file": "cases/Case01SqlInjection.m",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case01/bad",
+      "route_good": "/case01/good"
+    },
+    {
+      "id": "case02",
+      "title": "OS command injection",
+      "cwe": 78,
+      "cwe_aliases": [
+        78,
+        77,
+        88
+      ],
+      "file": "cases/Case02CommandInjection.m",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case02/bad",
+      "route_good": "/case02/good"
+    },
+    {
+      "id": "case03",
+      "title": "Path traversal",
+      "cwe": 22,
+      "cwe_aliases": [
+        22,
+        23,
+        36,
+        73
+      ],
+      "file": "cases/Case03PathTraversal.m",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case03/bad",
+      "route_good": "/case03/good"
+    },
+    {
+      "id": "case04",
+      "title": "Reflected cross-site scripting",
+      "cwe": 79,
+      "cwe_aliases": [
+        79,
+        80,
+        116
+      ],
+      "file": "cases/Case04Xss.m",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case04/bad",
+      "route_good": "/case04/good"
+    },
+    {
+      "id": "case05",
+      "title": "XML external entity",
+      "cwe": 611,
+      "cwe_aliases": [
+        611,
+        827,
+        776,
+        918
+      ],
+      "file": "cases/Case05Xxe.m",
+      "bad_function": "bad",
+      "good_function": "good",
+      "runtime_verified": false,
+      "runtime_note": "GNUstep NSXMLParser never resolves external entities, so the flaw (shouldResolveExternalEntities:YES, the Apple-platform pattern) is not exploitable in this Linux build. Static-analysis ground truth only.",
+      "route_bad": "/case05/bad",
+      "route_good": "/case05/good"
+    },
+    {
+      "id": "case06",
+      "title": "Insecure deserialization",
+      "cwe": 502,
+      "cwe_aliases": [
+        502
+      ],
+      "file": "cases/Case06Deserialization.m",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case06/bad",
+      "route_good": "/case06/good"
+    },
+    {
+      "id": "case07",
+      "title": "Weak password hash (MD5)",
+      "cwe": 327,
+      "cwe_aliases": [
+        327,
+        328,
+        916,
+        759
+      ],
+      "file": "cases/Case07WeakHash.m",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case07/bad",
+      "route_good": "/case07/good"
+    },
+    {
+      "id": "case08",
+      "title": "Hardcoded credential",
+      "cwe": 798,
+      "cwe_aliases": [
+        798,
+        259,
+        321,
+        547
+      ],
+      "file": "cases/Case08HardcodedCredentials.m",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case08/bad",
+      "route_good": "/case08/good"
+    },
+    {
+      "id": "case09",
+      "title": "Open redirect",
+      "cwe": 601,
+      "cwe_aliases": [
+        601
+      ],
+      "file": "cases/Case09OpenRedirect.m",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case09/bad",
+      "route_good": "/case09/good"
+    },
+    {
+      "id": "case10",
+      "title": "Insecure randomness for a token",
+      "cwe": 330,
+      "cwe_aliases": [
+        330,
+        338,
+        335,
+        331
+      ],
+      "file": "cases/Case10InsecureRandom.m",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case10/bad",
+      "route_good": "/case10/good"
+    },
+    {
+      "id": "case11",
+      "title": "Server-side request forgery",
+      "cwe": 918,
+      "cwe_aliases": [
+        918
+      ],
+      "file": "cases/Case11Ssrf.m",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case11/bad",
+      "route_good": "/case11/good"
+    },
+    {
+      "id": "case12",
+      "title": "Uncontrolled format string",
+      "cwe": 134,
+      "cwe_aliases": [
+        134,
+        133
+      ],
+      "file": "cases/Case12FormatString.m",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case12/bad",
+      "route_good": "/case12/good"
+    }
+  ],
+  "dependencies": [
+    {
+      "package": "AFNetworking",
+      "version": "2.5.2",
+      "ecosystem": "CocoaPods",
+      "declared_in": "Podfile / Podfile.lock",
+      "cves": [
+        "CVE-2015-3996"
+      ],
+      "fixed_in": "2.5.3",
+      "reachable": false,
+      "note": "Declared only; the app is a Linux/GNUstep build that never imports it."
+    }
+  ],
+  "dependency_disclaimer": "CVE mappings and fixed versions come from the author's knowledge and have not been checked against a live advisory database. Verify before citing.",
+  "build_note": "Run ./build.sh (needs gobjc, gnustep-make, libgnustep-base-dev, libsqlite3-dev, libssl-dev), then ./vulnobjc 8083. iOS-specific flaws (Keychain, URL schemes, ATS) are not covered because they cannot be built on Linux.",
+  "sca_inputs": [
+    {
+      "file": "Podfile",
+      "parsed_by_osv_scanner": false,
+      "note": "Dependency declaration; ground truth"
+    },
+    {
+      "file": "Podfile.lock",
+      "parsed_by_osv_scanner": false,
+      "note": "CocoaPods lockfile. OSV-Scanner has no CocoaPods extractor, so this is a known blind spot"
+    }
+  ]
+}
