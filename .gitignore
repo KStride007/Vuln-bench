@@ -3,3 +3,5 @@ obj/
 docs/
 __pycache__/
 *.log
+blind-out/
+blind-keys/
