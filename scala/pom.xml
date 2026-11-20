@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Scanner-readable mirror of build.sbt. Most SCA tools (including OSV-Scanner) cannot read sbt files,
+     so the same dependency set is declared here. Keep both files in sync. This pom is not used to build. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>bench</groupId>
+  <artifactId>vuln-scala</artifactId>
+  <version>0.1.0</version>
+  <dependencies>
+    <dependency><groupId>com.typesafe.play</groupId><artifactId>play_2.13</artifactId><version>2.8.15</version></dependency>
+    <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-databind</artifactId><version>2.9.8</version></dependency>
+    <dependency><groupId>org.yaml</groupId><artifactId>snakeyaml</artifactId><version>1.26</version></dependency>
+    <dependency><groupId>org.apache.logging.log4j</groupId><artifactId>log4j-core</artifactId><version>2.14.1</version></dependency>
+    <dependency><groupId>com.h2database</groupId><artifactId>h2</artifactId><version>2.1.214</version></dependency>
+  </dependencies>
+</project>

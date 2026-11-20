@@ -1,0 +1,284 @@
+{
+  "app": "VulnScala",
+  "language": "Scala",
+  "language_key": "scala",
+  "framework": "Scala 2.11/2.13 on the JDK built-in HTTP server, JDBC to H2",
+  "scoring_unit": "Each case object has a bad method (one flaw) and a good method (same behavior, flaw removed).",
+  "cases": [
+    {
+      "id": "case01",
+      "title": "SQL injection",
+      "cwe": 89,
+      "cwe_aliases": [
+        89,
+        564
+      ],
+      "file": "src/main/scala/vulnscala/cases/Case01SqlInjection.scala",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case01/bad",
+      "route_good": "/case01/good"
+    },
+    {
+      "id": "case02",
+      "title": "OS command injection",
+      "cwe": 78,
+      "cwe_aliases": [
+        78,
+        77,
+        88
+      ],
+      "file": "src/main/scala/vulnscala/cases/Case02CommandInjection.scala",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case02/bad",
+      "route_good": "/case02/good"
+    },
+    {
+      "id": "case03",
+      "title": "Path traversal",
+      "cwe": 22,
+      "cwe_aliases": [
+        22,
+        23,
+        36,
+        73
+      ],
+      "file": "src/main/scala/vulnscala/cases/Case03PathTraversal.scala",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case03/bad",
+      "route_good": "/case03/good"
+    },
+    {
+      "id": "case04",
+      "title": "Reflected cross-site scripting",
+      "cwe": 79,
+      "cwe_aliases": [
+        79,
+        80,
+        116
+      ],
+      "file": "src/main/scala/vulnscala/cases/Case04Xss.scala",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case04/bad",
+      "route_good": "/case04/good"
+    },
+    {
+      "id": "case05",
+      "title": "XML external entity",
+      "cwe": 611,
+      "cwe_aliases": [
+        611,
+        827,
+        776,
+        918
+      ],
+      "file": "src/main/scala/vulnscala/cases/Case05Xxe.scala",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case05/bad",
+      "route_good": "/case05/good"
+    },
+    {
+      "id": "case06",
+      "title": "Insecure deserialization",
+      "cwe": 502,
+      "cwe_aliases": [
+        502
+      ],
+      "file": "src/main/scala/vulnscala/cases/Case06Deserialization.scala",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case06/bad",
+      "route_good": "/case06/good"
+    },
+    {
+      "id": "case07",
+      "title": "Weak password hash (MD5)",
+      "cwe": 327,
+      "cwe_aliases": [
+        327,
+        328,
+        916,
+        759
+      ],
+      "file": "src/main/scala/vulnscala/cases/Case07WeakHash.scala",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case07/bad",
+      "route_good": "/case07/good"
+    },
+    {
+      "id": "case08",
+      "title": "Hardcoded credential",
+      "cwe": 798,
+      "cwe_aliases": [
+        798,
+        259,
+        321,
+        547
+      ],
+      "file": "src/main/scala/vulnscala/cases/Case08HardcodedCredentials.scala",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case08/bad",
+      "route_good": "/case08/good"
+    },
+    {
+      "id": "case09",
+      "title": "Open redirect",
+      "cwe": 601,
+      "cwe_aliases": [
+        601
+      ],
+      "file": "src/main/scala/vulnscala/cases/Case09OpenRedirect.scala",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case09/bad",
+      "route_good": "/case09/good"
+    },
+    {
+      "id": "case10",
+      "title": "Insecure randomness for a token",
+      "cwe": 330,
+      "cwe_aliases": [
+        330,
+        338,
+        335,
+        331
+      ],
+      "file": "src/main/scala/vulnscala/cases/Case10InsecureRandom.scala",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case10/bad",
+      "route_good": "/case10/good"
+    },
+    {
+      "id": "case11",
+      "title": "Server-side request forgery",
+      "cwe": 918,
+      "cwe_aliases": [
+        918
+      ],
+      "file": "src/main/scala/vulnscala/cases/Case11Ssrf.scala",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case11/bad",
+      "route_good": "/case11/good"
+    },
+    {
+      "id": "case12",
+      "title": "Regular expression denial of service",
+      "cwe": 1333,
+      "cwe_aliases": [
+        1333,
+        400,
+        730
+      ],
+      "file": "src/main/scala/vulnscala/cases/Case12ReDoS.scala",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case12/bad",
+      "route_good": "/case12/good"
+    }
+  ],
+  "dependencies": [
+    {
+      "package": "com.typesafe.play:play_2.13",
+      "version": "2.8.15",
+      "ecosystem": "Maven",
+      "declared_in": "build.sbt",
+      "cves": [
+        "CVE-2022-31018",
+        "CVE-2022-31023"
+      ],
+      "fixed_in": "2.8.16",
+      "reachable": false,
+      "note": "Declared, never referenced in code.",
+      "evidence": "CVE-to-version mapping seen in OSV/NVD web search results during authoring; not run through a scanner."
+    },
+    {
+      "package": "com.fasterxml.jackson.core:jackson-databind",
+      "version": "2.9.8",
+      "ecosystem": "Maven",
+      "declared_in": "build.sbt",
+      "cves": [
+        "CVE-2019-12384",
+        "CVE-2019-14379"
+      ],
+      "fixed_in": "2.9.9.2",
+      "reachable": false,
+      "note": "Declared, never referenced in code."
+    },
+    {
+      "package": "org.yaml:snakeyaml",
+      "version": "1.26",
+      "ecosystem": "Maven",
+      "declared_in": "build.sbt",
+      "cves": [
+        "CVE-2022-1471"
+      ],
+      "fixed_in": "2.0",
+      "reachable": false,
+      "note": "Declared, never referenced in code."
+    },
+    {
+      "package": "org.apache.logging.log4j:log4j-core",
+      "version": "2.14.1",
+      "ecosystem": "Maven",
+      "declared_in": "build.sbt",
+      "cves": [
+        "CVE-2021-44228"
+      ],
+      "fixed_in": "2.15.0",
+      "reachable": false,
+      "note": "Declared, never referenced in code."
+    },
+    {
+      "package": "com.h2database:h2",
+      "version": "2.1.214",
+      "ecosystem": "Maven",
+      "declared_in": "build.sbt",
+      "cves": [
+        "CVE-2022-45868"
+      ],
+      "fixed_in": "2.2.220",
+      "reachable": true,
+      "note": "Used by Db.scala. Local verification ran the apt-packaged H2 2.2.220, not this version."
+    },
+    {
+      "package": "org.apache.commons:commons-text",
+      "version": "1.9",
+      "ecosystem": "Maven",
+      "declared_in": "extras/Report.scala (//> using dep only)",
+      "cves": [
+        "CVE-2022-42889"
+      ],
+      "fixed_in": "1.10.0",
+      "reachable": false,
+      "manifest_detectable": false,
+      "note": "Declared only through a Scala-CLI directive; invisible to build-file scanners."
+    }
+  ],
+  "dependency_disclaimer": "CVE mappings and fixed versions come from the author's knowledge and have not been checked against a live advisory database. Verify before citing.",
+  "build_note": "Compile with JDK 8: scalac -cp /usr/share/java/h2.jar -d out $(find src/main -name '*.scala'); run on JDK 11+ (H2 2.2.x needs it) with scala-library.jar on the classpath. Case12 uses a backreference because JDK 9+ memoizes plain (a+)+ and it no longer backtracks.",
+  "sca_inputs": [
+    {
+      "file": "build.sbt",
+      "parsed_by_osv_scanner": false,
+      "note": "Dependency declarations; ground truth"
+    },
+    {
+      "file": "pom.xml",
+      "parsed_by_osv_scanner": true,
+      "note": "Scanner-readable mirror of the five build.sbt dependencies (not used to build)"
+    },
+    {
+      "file": "extras/Report.scala",
+      "parsed_by_osv_scanner": false,
+      "note": "//> using dep only (commons-text 1.9); invisible to every manifest scanner"
+    }
+  ]
+}

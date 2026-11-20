@@ -1,0 +1,145 @@
+{
+  "cases": 12,
+  "rows": [
+    {
+      "id": "case01",
+      "cwe": 89,
+      "title": "SQL injection",
+      "bad_loose": true,
+      "bad_strict": true,
+      "good_loose": false,
+      "good_strict": false,
+      "bad_findings_without_cwe": 0
+    },
+    {
+      "id": "case02",
+      "cwe": 78,
+      "title": "OS command injection",
+      "bad_loose": false,
+      "bad_strict": false,
+      "good_loose": false,
+      "good_strict": false,
+      "bad_findings_without_cwe": 0
+    },
+    {
+      "id": "case03",
+      "cwe": 22,
+      "title": "Path traversal",
+      "bad_loose": false,
+      "bad_strict": false,
+      "good_loose": false,
+      "good_strict": false,
+      "bad_findings_without_cwe": 0
+    },
+    {
+      "id": "case04",
+      "cwe": 79,
+      "title": "Reflected cross-site scripting",
+      "bad_loose": false,
+      "bad_strict": false,
+      "good_loose": false,
+      "good_strict": false,
+      "bad_findings_without_cwe": 0
+    },
+    {
+      "id": "case05",
+      "cwe": 611,
+      "title": "XML external entity",
+      "bad_loose": true,
+      "bad_strict": true,
+      "good_loose": true,
+      "good_strict": true,
+      "bad_findings_without_cwe": 0
+    },
+    {
+      "id": "case06",
+      "cwe": 502,
+      "title": "Insecure deserialization",
+      "bad_loose": false,
+      "bad_strict": false,
+      "good_loose": false,
+      "good_strict": false,
+      "bad_findings_without_cwe": 0
+    },
+    {
+      "id": "case07",
+      "cwe": 327,
+      "title": "Weak password hash (MD5)",
+      "bad_loose": false,
+      "bad_strict": false,
+      "good_loose": false,
+      "good_strict": false,
+      "bad_findings_without_cwe": 0
+    },
+    {
+      "id": "case08",
+      "cwe": 798,
+      "title": "Hardcoded credential",
+      "bad_loose": false,
+      "bad_strict": false,
+      "good_loose": false,
+      "good_strict": false,
+      "bad_findings_without_cwe": 0
+    },
+    {
+      "id": "case09",
+      "cwe": 601,
+      "title": "Open redirect",
+      "bad_loose": false,
+      "bad_strict": false,
+      "good_loose": false,
+      "good_strict": false,
+      "bad_findings_without_cwe": 0
+    },
+    {
+      "id": "case10",
+      "cwe": 330,
+      "title": "Insecure randomness for a token",
+      "bad_loose": false,
+      "bad_strict": false,
+      "good_loose": false,
+      "good_strict": false,
+      "bad_findings_without_cwe": 0
+    },
+    {
+      "id": "case11",
+      "cwe": 918,
+      "title": "Server-side request forgery",
+      "bad_loose": false,
+      "bad_strict": false,
+      "good_loose": false,
+      "good_strict": false,
+      "bad_findings_without_cwe": 0
+    },
+    {
+      "id": "case12",
+      "cwe": 1333,
+      "title": "Regular expression denial of service",
+      "bad_loose": false,
+      "bad_strict": false,
+      "good_loose": false,
+      "good_strict": false,
+      "bad_findings_without_cwe": 0
+    }
+  ],
+  "loose": {
+    "tp": 2,
+    "fn": 10,
+    "fp": 1,
+    "tn": 11,
+    "tpr": 0.16666666666666666,
+    "fpr": 0.08333333333333333,
+    "score": 0.08333333333333333
+  },
+  "strict": {
+    "tp": 2,
+    "fn": 10,
+    "fp": 1,
+    "tn": 11,
+    "tpr": 0.16666666666666666,
+    "fpr": 0.08333333333333333,
+    "score": 0.08333333333333333
+  },
+  "findings_total": 3,
+  "findings_outside_labeled_functions": 0
+}
