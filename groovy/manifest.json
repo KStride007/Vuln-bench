@@ -1,0 +1,306 @@
+{
+  "app": "VulnGroovy",
+  "language": "Groovy",
+  "framework": "Groovy 2.4 on the JDK built-in HTTP server",
+  "scoring_unit": "Each case has a bad method (one flaw) and a good method (same behavior, flaw removed).",
+  "cases": [
+    {
+      "id": "case01",
+      "title": "SQL injection",
+      "cwe": 89,
+      "cwe_aliases": [
+        89,
+        564
+      ],
+      "file": "src/vulngroovy/cases/Case01SqlInjection.groovy",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case01/bad",
+      "route_good": "/case01/good"
+    },
+    {
+      "id": "case02",
+      "title": "OS command injection",
+      "cwe": 78,
+      "cwe_aliases": [
+        78,
+        77,
+        88
+      ],
+      "file": "src/vulngroovy/cases/Case02CommandInjection.groovy",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case02/bad",
+      "route_good": "/case02/good"
+    },
+    {
+      "id": "case03",
+      "title": "Path traversal",
+      "cwe": 22,
+      "cwe_aliases": [
+        22,
+        23,
+        36,
+        73
+      ],
+      "file": "src/vulngroovy/cases/Case03PathTraversal.groovy",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case03/bad",
+      "route_good": "/case03/good"
+    },
+    {
+      "id": "case04",
+      "title": "Reflected cross-site scripting",
+      "cwe": 79,
+      "cwe_aliases": [
+        79,
+        80,
+        116
+      ],
+      "file": "src/vulngroovy/cases/Case04Xss.groovy",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case04/bad",
+      "route_good": "/case04/good"
+    },
+    {
+      "id": "case05",
+      "title": "XML external entity",
+      "cwe": 611,
+      "cwe_aliases": [
+        611,
+        827,
+        776,
+        918
+      ],
+      "file": "src/vulngroovy/cases/Case05Xxe.groovy",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case05/bad",
+      "route_good": "/case05/good"
+    },
+    {
+      "id": "case06",
+      "title": "Insecure deserialization",
+      "cwe": 502,
+      "cwe_aliases": [
+        502
+      ],
+      "file": "src/vulngroovy/cases/Case06Deserialization.groovy",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case06/bad",
+      "route_good": "/case06/good"
+    },
+    {
+      "id": "case07",
+      "title": "Weak password hash (MD5)",
+      "cwe": 327,
+      "cwe_aliases": [
+        327,
+        328,
+        916,
+        759
+      ],
+      "file": "src/vulngroovy/cases/Case07WeakHash.groovy",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case07/bad",
+      "route_good": "/case07/good"
+    },
+    {
+      "id": "case08",
+      "title": "Hardcoded credential",
+      "cwe": 798,
+      "cwe_aliases": [
+        798,
+        259,
+        321,
+        547
+      ],
+      "file": "src/vulngroovy/cases/Case08HardcodedCredentials.groovy",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case08/bad",
+      "route_good": "/case08/good"
+    },
+    {
+      "id": "case09",
+      "title": "Open redirect",
+      "cwe": 601,
+      "cwe_aliases": [
+        601
+      ],
+      "file": "src/vulngroovy/cases/Case09OpenRedirect.groovy",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case09/bad",
+      "route_good": "/case09/good"
+    },
+    {
+      "id": "case10",
+      "title": "Insecure randomness for a token",
+      "cwe": 330,
+      "cwe_aliases": [
+        330,
+        338,
+        335,
+        331
+      ],
+      "file": "src/vulngroovy/cases/Case10InsecureRandom.groovy",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case10/bad",
+      "route_good": "/case10/good"
+    },
+    {
+      "id": "case11",
+      "title": "Server-side request forgery",
+      "cwe": 918,
+      "cwe_aliases": [
+        918
+      ],
+      "file": "src/vulngroovy/cases/Case11Ssrf.groovy",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case11/bad",
+      "route_good": "/case11/good"
+    },
+    {
+      "id": "case12",
+      "title": "Code injection via Eval",
+      "cwe": 95,
+      "cwe_aliases": [
+        95,
+        94,
+        917
+      ],
+      "file": "src/vulngroovy/cases/Case12CodeInjection.groovy",
+      "bad_function": "bad",
+      "good_function": "good",
+      "route_bad": "/case12/bad",
+      "route_good": "/case12/good"
+    }
+  ],
+  "dependencies": [
+    {
+      "package": "org.codehaus.groovy:groovy-all",
+      "version": "2.4.3",
+      "ecosystem": "Maven",
+      "declared_in": "build.gradle",
+      "cves": [
+        "CVE-2015-3253"
+      ],
+      "fixed_in": "2.4.4",
+      "reachable": true,
+      "note": "Groovy runtime. Local verification ran the apt-packaged Groovy 2.4.21, not this version."
+    },
+    {
+      "package": "commons-collections:commons-collections",
+      "version": "3.2.1",
+      "ecosystem": "Maven",
+      "declared_in": "build.gradle",
+      "cves": [
+        "CVE-2015-7501",
+        "CVE-2015-6420"
+      ],
+      "fixed_in": "3.2.2",
+      "reachable": false,
+      "note": "Declared, never referenced in code."
+    },
+    {
+      "package": "org.apache.commons:commons-collections4",
+      "version": "4.0",
+      "ecosystem": "Maven",
+      "declared_in": "build.gradle",
+      "cves": [
+        "CVE-2015-6420"
+      ],
+      "fixed_in": "4.1",
+      "reachable": false,
+      "note": "Declared, never referenced in code."
+    },
+    {
+      "package": "com.fasterxml.jackson.core:jackson-databind",
+      "version": "2.9.8",
+      "ecosystem": "Maven",
+      "declared_in": "build.gradle",
+      "cves": [
+        "CVE-2019-12384",
+        "CVE-2019-14379"
+      ],
+      "fixed_in": "2.9.9.2",
+      "reachable": false,
+      "note": "Declared, never referenced in code."
+    },
+    {
+      "package": "org.yaml:snakeyaml",
+      "version": "1.26",
+      "ecosystem": "Maven",
+      "declared_in": "build.gradle",
+      "cves": [
+        "CVE-2022-1471"
+      ],
+      "fixed_in": "2.0",
+      "reachable": false,
+      "note": "Declared, never referenced in code."
+    },
+    {
+      "package": "org.apache.logging.log4j:log4j-core",
+      "version": "2.14.1",
+      "ecosystem": "Maven",
+      "declared_in": "build.gradle",
+      "cves": [
+        "CVE-2021-44228"
+      ],
+      "fixed_in": "2.15.0",
+      "reachable": false,
+      "note": "Declared, never referenced in code."
+    },
+    {
+      "package": "com.h2database:h2",
+      "version": "2.1.214",
+      "ecosystem": "Maven",
+      "declared_in": "build.gradle",
+      "cves": [
+        "CVE-2022-45868"
+      ],
+      "fixed_in": "2.2.220",
+      "reachable": true,
+      "note": "Used by Db.groovy. Local verification ran the apt-packaged H2 2.2.220, not this version."
+    },
+    {
+      "package": "org.apache.commons:commons-text",
+      "version": "1.9",
+      "ecosystem": "Maven",
+      "declared_in": "src/vulngroovy/extras/Report.groovy (@Grab only)",
+      "cves": [
+        "CVE-2022-42889"
+      ],
+      "fixed_in": "1.10.0",
+      "reachable": false,
+      "manifest_detectable": false,
+      "note": "Declared only through @Grab; invisible to build-file scanners."
+    }
+  ],
+  "dependency_disclaimer": "CVE mappings and fixed versions come from the author's knowledge and have not been checked against a live advisory database. Verify before citing.",
+  "build_note": "Run: groovy -cp src:/usr/share/java/h2.jar src/vulngroovy/Server.groovy 8081",
+  "sca_inputs": [
+    {
+      "file": "build.gradle",
+      "parsed_by_osv_scanner": false,
+      "note": "Dependency declarations; ground truth"
+    },
+    {
+      "file": "gradle.lockfile",
+      "parsed_by_osv_scanner": true,
+      "note": "Scanner-readable copy of the seven build.gradle dependencies"
+    },
+    {
+      "file": "src/vulngroovy/extras/Report.groovy",
+      "parsed_by_osv_scanner": false,
+      "note": "@Grab-only dependency (commons-text 1.9); invisible to every manifest scanner"
+    }
+  ]
+}
