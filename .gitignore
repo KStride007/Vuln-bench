@@ -3,3 +3,6 @@ obj/
 docs/
 __pycache__/
 *.log
+vulnobjc
+*.d
+*.o
