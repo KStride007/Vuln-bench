@@ -1,0 +1,291 @@
+{
+  "results": [
+    {
+      "packages": [
+        {
+          "package": {
+            "name": "org.codehaus.groovy:groovy-all",
+            "version": "2.4.3"
+          },
+          "vulnerabilities": [
+            {
+              "id": "CVE-2015-3253"
+            },
+            {
+              "id": "CVE-2016-6814"
+            },
+            {
+              "id": "CVE-2020-17521"
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "org.apache.commons:commons-collections4",
+            "version": "4.0"
+          },
+          "vulnerabilities": [
+            {
+              "id": "CVE-2015-7501"
+            },
+            {
+              "id": "CVE-2015-6420"
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "commons-collections:commons-collections",
+            "version": "3.2.1"
+          },
+          "vulnerabilities": [
+            {
+              "id": "CVE-2015-7501"
+            },
+            {
+              "id": "CVE-2015-6420"
+            },
+            {
+              "id": "CVE-2015-4852"
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "com.fasterxml.jackson.core:jackson-databind",
+            "version": "2.9.8"
+          },
+          "vulnerabilities": [
+            {
+              "id": "CVE-2019-12086"
+            },
+            {
+              "id": "CVE-2019-12384"
+            },
+            {
+              "id": "CVE-2019-12814"
+            },
+            {
+              "id": "CVE-2019-14379"
+            },
+            {
+              "id": "CVE-2019-14439"
+            },
+            {
+              "id": "CVE-2019-14540"
+            },
+            {
+              "id": "CVE-2019-14892"
+            },
+            {
+              "id": "CVE-2019-14893"
+            },
+            {
+              "id": "CVE-2019-16335"
+            },
+            {
+              "id": "CVE-2019-16942"
+            },
+            {
+              "id": "CVE-2019-16943"
+            },
+            {
+              "id": "CVE-2019-17267"
+            },
+            {
+              "id": "CVE-2019-17531"
+            },
+            {
+              "id": "CVE-2019-20330"
+            },
+            {
+              "id": "CVE-2020-8840"
+            },
+            {
+              "id": "CVE-2020-9546"
+            },
+            {
+              "id": "CVE-2020-9547"
+            },
+            {
+              "id": "CVE-2020-9548"
+            },
+            {
+              "id": "CVE-2020-10672"
+            },
+            {
+              "id": "CVE-2020-10673"
+            },
+            {
+              "id": "CVE-2020-10968"
+            },
+            {
+              "id": "CVE-2020-10969"
+            },
+            {
+              "id": "CVE-2020-11111"
+            },
+            {
+              "id": "CVE-2020-11112"
+            },
+            {
+              "id": "CVE-2020-11113"
+            },
+            {
+              "id": "CVE-2020-11619"
+            },
+            {
+              "id": "CVE-2020-11620"
+            },
+            {
+              "id": "CVE-2020-14060"
+            },
+            {
+              "id": "CVE-2020-14061"
+            },
+            {
+              "id": "CVE-2020-14062"
+            },
+            {
+              "id": "CVE-2020-14195"
+            },
+            {
+              "id": "CVE-2020-24616"
+            },
+            {
+              "id": "CVE-2020-24750"
+            },
+            {
+              "id": "CVE-2020-25649"
+            },
+            {
+              "id": "CVE-2020-35490"
+            },
+            {
+              "id": "CVE-2020-35491"
+            },
+            {
+              "id": "CVE-2020-35728"
+            },
+            {
+              "id": "CVE-2020-36179"
+            },
+            {
+              "id": "CVE-2020-36180"
+            },
+            {
+              "id": "CVE-2020-36181"
+            },
+            {
+              "id": "CVE-2020-36182"
+            },
+            {
+              "id": "CVE-2020-36183"
+            },
+            {
+              "id": "CVE-2020-36184"
+            },
+            {
+              "id": "CVE-2020-36185"
+            },
+            {
+              "id": "CVE-2020-36186"
+            },
+            {
+              "id": "CVE-2020-36187"
+            },
+            {
+              "id": "CVE-2020-36188"
+            },
+            {
+              "id": "CVE-2020-36189"
+            },
+            {
+              "id": "CVE-2021-20190"
+            },
+            {
+              "id": "CVE-2020-36518"
+            },
+            {
+              "id": "CVE-2022-42003"
+            },
+            {
+              "id": "CVE-2022-42004"
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "org.yaml:snakeyaml",
+            "version": "1.26"
+          },
+          "vulnerabilities": [
+            {
+              "id": "CVE-2022-1471"
+            },
+            {
+              "id": "CVE-2022-25857"
+            },
+            {
+              "id": "CVE-2022-38749"
+            },
+            {
+              "id": "CVE-2022-38750"
+            },
+            {
+              "id": "CVE-2022-38751"
+            },
+            {
+              "id": "CVE-2022-38752"
+            },
+            {
+              "id": "CVE-2022-41854"
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "org.apache.logging.log4j:log4j-core",
+            "version": "2.14.1"
+          },
+          "vulnerabilities": [
+            {
+              "id": "CVE-2021-44228"
+            },
+            {
+              "id": "CVE-2021-45046"
+            },
+            {
+              "id": "CVE-2021-45105"
+            },
+            {
+              "id": "CVE-2021-44832"
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "com.h2database:h2",
+            "version": "2.1.214"
+          },
+          "vulnerabilities": [
+            {
+              "id": "CVE-2022-45868"
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "org.apache.commons:commons-text",
+            "version": "1.9"
+          },
+          "vulnerabilities": [
+            {
+              "id": "CVE-2022-42889"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

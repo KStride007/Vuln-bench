@@ -1,0 +1,315 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "claude"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "llm.CWE-89",
+          "level": "warning",
+          "message": {
+            "text": "CWE-89: SQL injection: the name parameter is concatenated into the SQL query"
+          },
+          "properties": {
+            "confidence": "high",
+            "tags": [
+              "CWE-89"
+            ]
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/appgroovy/cases/Handler01.groovy"
+                },
+                "region": {
+                  "startLine": 25
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "llm.CWE-78",
+          "level": "warning",
+          "message": {
+            "text": "CWE-78: OS command injection: the host parameter is interpolated into a /bin/sh -c command"
+          },
+          "properties": {
+            "confidence": "high",
+            "tags": [
+              "CWE-78"
+            ]
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/appgroovy/cases/Handler02.groovy"
+                },
+                "region": {
+                  "startLine": 10
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "llm.CWE-22",
+          "level": "warning",
+          "message": {
+            "text": "CWE-22: Path traversal: the file parameter is read with no check that it stays inside the docs folder"
+          },
+          "properties": {
+            "confidence": "high",
+            "tags": [
+              "CWE-22"
+            ]
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/appgroovy/cases/Handler03.groovy"
+                },
+                "region": {
+                  "startLine": 13
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "llm.CWE-79",
+          "level": "warning",
+          "message": {
+            "text": "CWE-79: Reflected XSS: the name parameter is written into the HTML response without escaping"
+          },
+          "properties": {
+            "confidence": "high",
+            "tags": [
+              "CWE-79"
+            ]
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/appgroovy/cases/Handler04.groovy"
+                },
+                "region": {
+                  "startLine": 11
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "llm.CWE-611",
+          "level": "warning",
+          "message": {
+            "text": "CWE-611: XXE: user-supplied XML is parsed with the default DocumentBuilderFactory, which allows external entities"
+          },
+          "properties": {
+            "confidence": "high",
+            "tags": [
+              "CWE-611"
+            ]
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/appgroovy/cases/Handler05.groovy"
+                },
+                "region": {
+                  "startLine": 25
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "llm.CWE-502",
+          "level": "warning",
+          "message": {
+            "text": "CWE-502: Unsafe Java deserialization of user-supplied data with ObjectInputStream"
+          },
+          "properties": {
+            "confidence": "high",
+            "tags": [
+              "CWE-502"
+            ]
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/appgroovy/cases/Handler06.groovy"
+                },
+                "region": {
+                  "startLine": 13
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "llm.CWE-328",
+          "level": "warning",
+          "message": {
+            "text": "CWE-328: Password hashed with unsalted MD5"
+          },
+          "properties": {
+            "confidence": "high",
+            "tags": [
+              "CWE-328"
+            ]
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/appgroovy/cases/Handler07.groovy"
+                },
+                "region": {
+                  "startLine": 23
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "llm.CWE-798",
+          "level": "warning",
+          "message": {
+            "text": "CWE-798: Hard-coded admin password in source"
+          },
+          "properties": {
+            "confidence": "high",
+            "tags": [
+              "CWE-798"
+            ]
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/appgroovy/cases/Handler08.groovy"
+                },
+                "region": {
+                  "startLine": 11
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "llm.CWE-601",
+          "level": "warning",
+          "message": {
+            "text": "CWE-601: Open redirect: the next parameter is used as the Location header unchecked"
+          },
+          "properties": {
+            "confidence": "high",
+            "tags": [
+              "CWE-601"
+            ]
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/appgroovy/cases/Handler09.groovy"
+                },
+                "region": {
+                  "startLine": 10
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "llm.CWE-330",
+          "level": "warning",
+          "message": {
+            "text": "CWE-330: Reset token built with java.util.Random, which is predictable"
+          },
+          "properties": {
+            "confidence": "high",
+            "tags": [
+              "CWE-330"
+            ]
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/appgroovy/cases/Handler10.groovy"
+                },
+                "region": {
+                  "startLine": 16
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "llm.CWE-918",
+          "level": "warning",
+          "message": {
+            "text": "CWE-918: SSRF: the server fetches any user-supplied URL"
+          },
+          "properties": {
+            "confidence": "high",
+            "tags": [
+              "CWE-918"
+            ]
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/appgroovy/cases/Handler11.groovy"
+                },
+                "region": {
+                  "startLine": 10
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "llm.CWE-95",
+          "level": "warning",
+          "message": {
+            "text": "CWE-95: Code injection: the expr parameter is run as Groovy code with Eval.me"
+          },
+          "properties": {
+            "confidence": "high",
+            "tags": [
+              "CWE-95"
+            ]
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/appgroovy/cases/Handler12.groovy"
+                },
+                "region": {
+                  "startLine": 10
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

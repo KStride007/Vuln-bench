@@ -14,11 +14,10 @@ Subcommands:
   summarize SARIF...           score each run separately: mean, min and max TPR/FPR/score
 
 Scanners:
-  claude   `claude -p` headless, read-only tools (Read, Glob, Grep). Needs the Claude Code CLI signed in.
+  claude   `claude -p` headless, only the Read, Glob and Grep tools (--tools removes Bash and edit tools). Needs the Claude Code CLI signed in.
   codex    `codex exec` read-only sandbox. Needs the Codex CLI signed in. Check `codex exec --help` for flag changes.
   openai   Chat Completions with the source inlined in the prompt. Needs OPENAI_API_KEY and --model.
-The claude and openai paths were not run in the build environment (no credentials there); the parsing, SARIF
-conversion and scoring were tested on synthetic model output only.
+The claude path was run on all four blind apps (see README results). The codex and openai paths were not run.
 """
 import argparse
 import json
@@ -48,12 +47,12 @@ statement, the CWE number, a short title, and your confidence (high, medium or l
 vulnerability once, at the line where the unsafe operation happens. If a function handles the same input safely,
 do not report it.
 
-For each vulnerable dependency give the package name as it appears in the file, the declared version, and the CVE
-identifier you believe applies.
+For each vulnerable dependency give the package name as it appears in the file, the declared version, and the list of
+CVE identifiers you believe apply (all of them, not just the most severe).
 
 Respond with one JSON object and nothing else, in exactly this shape:
 {"findings":[{"file":"path/relative/to/cwd","line":123,"cwe":89,"title":"short title","confidence":"high"}],
- "dependencies":[{"package":"group:name","version":"1.2.3","cve":"CVE-2020-0000"}]}
+ "dependencies":[{"package":"group:name","version":"1.2.3","cves":["CVE-2020-0000"]}]}
 """
 
 SKIP_DIRS = {"bin", "obj", "out", "docs", ".git"}
@@ -113,9 +112,10 @@ def to_sarif(doc, tool="llm"):
 def to_sca(doc):
     pkgs = []
     for d in doc.get("dependencies", []):
-        if d.get("package") and d.get("cve"):
+        cves = d.get("cves") or ([d["cve"]] if d.get("cve") else [])
+        if d.get("package") and cves:
             pkgs.append({"package": {"name": d["package"], "version": str(d.get("version", ""))},
-                         "vulnerabilities": [{"id": str(d["cve"]).upper()}]})
+                         "vulnerabilities": [{"id": str(c).upper()} for c in cves]})
     return {"results": [{"packages": pkgs}]}
 
 
@@ -139,7 +139,8 @@ def read_sources(directory, limit=400_000):
 
 def scan(scanner, directory, model):
     if scanner == "claude":
-        cmd = ["claude", "-p", PROMPT, "--output-format", "json", "--allowedTools", "Read,Glob,Grep"]
+        cmd = ["claude", "-p", PROMPT, "--output-format", "json", "--tools", "Read,Glob,Grep",
+               "--allowedTools", "Read,Glob,Grep"]  # --tools removes Bash and edit tools; --allowedTools alone would not
         if model:
             cmd += ["--model", model]
         out = subprocess.run(cmd, cwd=directory, capture_output=True, text=True, timeout=1800)
