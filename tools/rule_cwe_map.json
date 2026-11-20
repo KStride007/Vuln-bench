@@ -1,0 +1,22 @@
+{
+  "_note": "Author's mapping of .NET analyzer rule IDs to CWEs, from the rule descriptions. Used by score.py --rule-cwe-map because Roslyn SARIF carries no CWE tags. Extend as needed.",
+  "CA2100": [89],
+  "CA3001": [89],
+  "CA3002": [79],
+  "CA3003": [22],
+  "CA3006": [78],
+  "CA3007": [601],
+  "CA3075": [611],
+  "CA3077": [611],
+  "CA5369": [611],
+  "CA5370": [611],
+  "CA5371": [611],
+  "CA5372": [611],
+  "CA2300": [502],
+  "CA2301": [502],
+  "CA2302": [502],
+  "CA2305": [502],
+  "CA5350": [327],
+  "CA5351": [327],
+  "CA5394": [330]
+}

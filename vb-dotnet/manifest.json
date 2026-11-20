@@ -1,0 +1,252 @@
+{
+  "app": "VulnVb",
+  "language": "VB.NET",
+  "framework": "ASP.NET Core minimal hosting (Kestrel), net8.0",
+  "scoring_unit": "Each case has a Bad function (one flaw) and a Good function (same behavior, flaw removed).",
+  "cases": [
+    {
+      "id": "case01",
+      "title": "SQL injection",
+      "cwe": 89,
+      "cwe_aliases": [
+        89,
+        564
+      ],
+      "file": "Cases/Case01SqlInjection.vb",
+      "bad_function": "Bad",
+      "good_function": "Good",
+      "route_bad": "/case01/bad",
+      "route_good": "/case01/good"
+    },
+    {
+      "id": "case02",
+      "title": "OS command injection",
+      "cwe": 78,
+      "cwe_aliases": [
+        78,
+        77,
+        88
+      ],
+      "file": "Cases/Case02CommandInjection.vb",
+      "bad_function": "Bad",
+      "good_function": "Good",
+      "route_bad": "/case02/bad",
+      "route_good": "/case02/good"
+    },
+    {
+      "id": "case03",
+      "title": "Path traversal",
+      "cwe": 22,
+      "cwe_aliases": [
+        22,
+        23,
+        36,
+        73
+      ],
+      "file": "Cases/Case03PathTraversal.vb",
+      "bad_function": "Bad",
+      "good_function": "Good",
+      "route_bad": "/case03/bad",
+      "route_good": "/case03/good"
+    },
+    {
+      "id": "case04",
+      "title": "Reflected cross-site scripting",
+      "cwe": 79,
+      "cwe_aliases": [
+        79,
+        80,
+        116
+      ],
+      "file": "Cases/Case04Xss.vb",
+      "bad_function": "Bad",
+      "good_function": "Good",
+      "route_bad": "/case04/bad",
+      "route_good": "/case04/good"
+    },
+    {
+      "id": "case05",
+      "title": "XML external entity",
+      "cwe": 611,
+      "cwe_aliases": [
+        611,
+        827,
+        776,
+        918
+      ],
+      "file": "Cases/Case05Xxe.vb",
+      "bad_function": "Bad",
+      "good_function": "Good",
+      "route_bad": "/case05/bad",
+      "route_good": "/case05/good"
+    },
+    {
+      "id": "case06",
+      "title": "Insecure deserialization",
+      "cwe": 502,
+      "cwe_aliases": [
+        502
+      ],
+      "file": "Cases/Case06Deserialization.vb",
+      "bad_function": "Bad",
+      "good_function": "Good",
+      "route_bad": "/case06/bad",
+      "route_good": "/case06/good"
+    },
+    {
+      "id": "case07",
+      "title": "Weak password hash (MD5)",
+      "cwe": 327,
+      "cwe_aliases": [
+        327,
+        328,
+        916,
+        759
+      ],
+      "file": "Cases/Case07WeakHash.vb",
+      "bad_function": "Bad",
+      "good_function": "Good",
+      "route_bad": "/case07/bad",
+      "route_good": "/case07/good"
+    },
+    {
+      "id": "case08",
+      "title": "Hardcoded credential",
+      "cwe": 798,
+      "cwe_aliases": [
+        798,
+        259,
+        321,
+        547
+      ],
+      "file": "Cases/Case08HardcodedCredentials.vb",
+      "bad_function": "Bad",
+      "good_function": "Good",
+      "route_bad": "/case08/bad",
+      "route_good": "/case08/good"
+    },
+    {
+      "id": "case09",
+      "title": "Open redirect",
+      "cwe": 601,
+      "cwe_aliases": [
+        601
+      ],
+      "file": "Cases/Case09OpenRedirect.vb",
+      "bad_function": "Bad",
+      "good_function": "Good",
+      "route_bad": "/case09/bad",
+      "route_good": "/case09/good"
+    },
+    {
+      "id": "case10",
+      "title": "Insecure randomness for a token",
+      "cwe": 330,
+      "cwe_aliases": [
+        330,
+        338,
+        335,
+        331
+      ],
+      "file": "Cases/Case10InsecureRandom.vb",
+      "bad_function": "Bad",
+      "good_function": "Good",
+      "route_bad": "/case10/bad",
+      "route_good": "/case10/good"
+    },
+    {
+      "id": "case11",
+      "title": "Server-side request forgery",
+      "cwe": 918,
+      "cwe_aliases": [
+        918
+      ],
+      "file": "Cases/Case11Ssrf.vb",
+      "bad_function": "Bad",
+      "good_function": "Good",
+      "route_bad": "/case11/bad",
+      "route_good": "/case11/good"
+    },
+    {
+      "id": "case12",
+      "title": "Regular expression denial of service",
+      "cwe": 1333,
+      "cwe_aliases": [
+        1333,
+        400,
+        730
+      ],
+      "file": "Cases/Case12ReDoS.vb",
+      "bad_function": "Bad",
+      "good_function": "Good",
+      "route_bad": "/case12/bad",
+      "route_good": "/case12/good"
+    }
+  ],
+  "dependencies": [
+    {
+      "package": "Newtonsoft.Json",
+      "version": "9.0.1",
+      "ecosystem": "NuGet",
+      "declared_in": "VulnVb.vbproj",
+      "cves": [
+        "CVE-2024-21907"
+      ],
+      "fixed_in": "13.0.1",
+      "reachable": true,
+      "note": "Used by Deps/DepUsage.vb (benign use)."
+    },
+    {
+      "package": "log4net",
+      "version": "2.0.8",
+      "ecosystem": "NuGet",
+      "declared_in": "VulnVb.vbproj",
+      "cves": [
+        "CVE-2018-1285"
+      ],
+      "fixed_in": "2.0.10",
+      "reachable": true,
+      "note": "Used by Deps/DepUsage.vb (benign use)."
+    },
+    {
+      "package": "SharpZipLib",
+      "version": "1.2.0",
+      "ecosystem": "NuGet",
+      "declared_in": "VulnVb.vbproj",
+      "cves": [
+        "CVE-2021-32840",
+        "CVE-2021-32841",
+        "CVE-2021-32842"
+      ],
+      "fixed_in": "1.3.3",
+      "reachable": false,
+      "note": "Declared, never referenced in code."
+    },
+    {
+      "package": "System.Text.Json",
+      "version": "8.0.0",
+      "ecosystem": "NuGet",
+      "declared_in": "VulnVb.vbproj",
+      "cves": [
+        "CVE-2024-30105"
+      ],
+      "fixed_in": "8.0.4",
+      "reachable": true,
+      "note": "Explicit package overrides the in-box version; used by Case06Deserialization.Good."
+    }
+  ],
+  "dependency_disclaimer": "CVE mappings and fixed versions come from the author's knowledge and have not been checked against a live advisory database. Verify before citing.",
+  "build_note": "dotnet build -p:OfflineVerify=true compiles the code cases without NuGet. Case01 needs an ADO.NET provider to execute but is complete for static analysis.",
+  "sca_inputs": [
+    {
+      "file": "VulnVb.vbproj",
+      "parsed_by_osv_scanner": false,
+      "note": "PackageReference items; ground truth"
+    },
+    {
+      "file": "packages.config",
+      "parsed_by_osv_scanner": true,
+      "note": "Scanner-readable copy of the same four packages"
+    }
+  ]
+}
