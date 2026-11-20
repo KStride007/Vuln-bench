@@ -137,3 +137,23 @@ Each run scans a fresh temp copy of the blind app, so the scanner cannot see the
 scanner is limited to read-only tools. Use at least 3 runs and report the mean and the min/max spread. `openai`
 needs `OPENAI_API_KEY`. `python3 tools/llm_scan.py prompt` prints the exact shared prompt. Raw output, parsed
 findings, SARIF and the dependency list for each run are saved in `llm-results/`.
+
+## Claude baseline (blind copy, 2026-11-20)
+
+Claude Code CLI (default model at the time), headless, only the Read, Glob and Grep tools, 3 runs on the blind copy
+from `tools/make_blind.py` (seed 7), scored with `score.py --blind` and `score_sca.py`. Raw output, parsed
+findings, SARIF and dependency lists are in `llm-results/`.
+
+| Measure | Result |
+|---|---|
+| Flaws found (strict, correct CWE) | 12 of 12 in every run |
+| Safe twins flagged | 0 of 12 in every run |
+| Extra findings | one finding outside the labeled functions in two of the three runs (main.m, CWE-113 response splitting on the Location header; a real flaw in the harness code, not counted as a true or false positive) |
+| Planted dependency CVEs named | 1 of 1 in all three runs |
+
+Read these numbers with care. The cases are textbook flaws with clearly fixed twins, so a perfect baseline shows the
+suite does not separate a strong LLM reviewer from a perfect one; its use is to show where rule-based tools fall short
+of that line. The dependency ground truth was written from the author's own knowledge of CVE mappings, so Claude
+agreeing with it is not independent confirmation. Audit of the 12 scan sessions: only Read and Glob calls, all inside
+the scan copy, none touching the answer key. A first set of runs had Bash available and a one-CVE-per-package prompt;
+it was discarded and rerun after both were fixed.

@@ -1,0 +1,22 @@
+{
+  "results": [
+    {
+      "packages": [
+        {
+          "package": {
+            "name": "AFNetworking",
+            "version": "2.5.2"
+          },
+          "vulnerabilities": [
+            {
+              "id": "CVE-2015-3996"
+            },
+            {
+              "id": "CVE-2016-4144"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
