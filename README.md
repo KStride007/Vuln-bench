@@ -120,3 +120,20 @@ or scanners. Planted dependencies are kept, since those are what SCA tools are t
 (`blind-keys/objc.json`) records which of opA/opB is vulnerable; the scorer reads it, so scores are comparable
 to the tool results above. Re-run with `--seed N` for a different shuffle. Keep `blind-keys/` out of the
 scanner's reach: an agent that can walk up the directory tree can read it.
+
+### Running an LLM scanner on the blind copy
+
+`tools/llm_scan.py` runs the same prompt through Claude Code, the Codex CLI or the OpenAI API, converts the
+answer to SARIF, and scores it against the blind key:
+
+```
+python3 tools/make_blind.py --app objc
+python3 tools/llm_scan.py run --scanner claude --app objc --runs 3      # or codex, or: --scanner openai --model MODEL
+python3 tools/llm_scan.py summarize --app objc llm-results/claude-objc-run*.sarif
+python3 tools/score_sca.py --app objc llm-results/claude-objc-run1.sca.json
+```
+
+Each run scans a fresh temp copy of the blind app, so the scanner cannot see the repo or `blind-keys/`. The claude
+scanner is limited to read-only tools. Use at least 3 runs and report the mean and the min/max spread. `openai`
+needs `OPENAI_API_KEY`. `python3 tools/llm_scan.py prompt` prints the exact shared prompt. Raw output, parsed
+findings, SARIF and the dependency list for each run are saved in `llm-results/`.
