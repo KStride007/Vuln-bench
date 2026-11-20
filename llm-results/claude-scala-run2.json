@@ -1,0 +1,193 @@
+{
+  "findings": [
+    {
+      "file": "src/main/scala/appscala/cases/Handler01.scala",
+      "line": 12,
+      "cwe": 89,
+      "title": "SQL injection via string-concatenated name parameter",
+      "confidence": "high"
+    },
+    {
+      "file": "src/main/scala/appscala/cases/Handler02.scala",
+      "line": 11,
+      "cwe": 78,
+      "title": "OS command injection via host parameter passed to /bin/sh -c",
+      "confidence": "high"
+    },
+    {
+      "file": "src/main/scala/appscala/cases/Handler03.scala",
+      "line": 25,
+      "cwe": 22,
+      "title": "Path traversal reading arbitrary file via file parameter",
+      "confidence": "high"
+    },
+    {
+      "file": "src/main/scala/appscala/cases/Handler04.scala",
+      "line": 16,
+      "cwe": 79,
+      "title": "Reflected XSS via unescaped name parameter in HTML",
+      "confidence": "high"
+    },
+    {
+      "file": "src/main/scala/appscala/cases/Handler05.scala",
+      "line": 14,
+      "cwe": 611,
+      "title": "XML external entity (XXE) injection with default DocumentBuilderFactory",
+      "confidence": "high"
+    },
+    {
+      "file": "src/main/scala/appscala/cases/Handler06.scala",
+      "line": 20,
+      "cwe": 502,
+      "title": "Deserialization of untrusted data via ObjectInputStream",
+      "confidence": "high"
+    },
+    {
+      "file": "src/main/scala/appscala/cases/Handler07.scala",
+      "line": 22,
+      "cwe": 328,
+      "title": "Password hashed with unsalted MD5",
+      "confidence": "high"
+    },
+    {
+      "file": "src/main/scala/appscala/cases/Handler08.scala",
+      "line": 11,
+      "cwe": 798,
+      "title": "Hard-coded admin password",
+      "confidence": "high"
+    },
+    {
+      "file": "src/main/scala/appscala/cases/Handler09.scala",
+      "line": 10,
+      "cwe": 601,
+      "title": "Open redirect via unvalidated next parameter",
+      "confidence": "high"
+    },
+    {
+      "file": "src/main/scala/appscala/cases/Handler10.scala",
+      "line": 11,
+      "cwe": 338,
+      "title": "Password reset token generated with non-cryptographic PRNG",
+      "confidence": "high"
+    },
+    {
+      "file": "src/main/scala/appscala/cases/Handler11.scala",
+      "line": 12,
+      "cwe": 918,
+      "title": "Server-side request forgery via user-supplied URL",
+      "confidence": "high"
+    },
+    {
+      "file": "src/main/scala/appscala/cases/Handler12.scala",
+      "line": 11,
+      "cwe": 1333,
+      "title": "ReDoS via catastrophic-backtracking regex on unbounded input",
+      "confidence": "high"
+    }
+  ],
+  "dependencies": [
+    {
+      "package": "com.fasterxml.jackson.core:jackson-databind",
+      "version": "2.9.8",
+      "cves": [
+        "CVE-2019-12086",
+        "CVE-2019-12384",
+        "CVE-2019-12814",
+        "CVE-2019-14379",
+        "CVE-2019-14439",
+        "CVE-2019-14540",
+        "CVE-2019-14892",
+        "CVE-2019-14893",
+        "CVE-2019-16335",
+        "CVE-2019-16942",
+        "CVE-2019-16943",
+        "CVE-2019-17267",
+        "CVE-2019-17531",
+        "CVE-2019-20330",
+        "CVE-2020-8840",
+        "CVE-2020-9546",
+        "CVE-2020-9547",
+        "CVE-2020-9548",
+        "CVE-2020-10672",
+        "CVE-2020-10673",
+        "CVE-2020-10968",
+        "CVE-2020-10969",
+        "CVE-2020-11111",
+        "CVE-2020-11112",
+        "CVE-2020-11113",
+        "CVE-2020-11619",
+        "CVE-2020-11620",
+        "CVE-2020-14060",
+        "CVE-2020-14061",
+        "CVE-2020-14062",
+        "CVE-2020-14195",
+        "CVE-2020-24616",
+        "CVE-2020-24750",
+        "CVE-2020-25649",
+        "CVE-2020-35490",
+        "CVE-2020-35491",
+        "CVE-2020-35728",
+        "CVE-2020-36179",
+        "CVE-2020-36180",
+        "CVE-2020-36181",
+        "CVE-2020-36182",
+        "CVE-2020-36183",
+        "CVE-2020-36184",
+        "CVE-2020-36185",
+        "CVE-2020-36186",
+        "CVE-2020-36187",
+        "CVE-2020-36188",
+        "CVE-2020-36189",
+        "CVE-2020-36518",
+        "CVE-2021-20190",
+        "CVE-2022-42003",
+        "CVE-2022-42004"
+      ]
+    },
+    {
+      "package": "org.yaml:snakeyaml",
+      "version": "1.26",
+      "cves": [
+        "CVE-2022-1471",
+        "CVE-2022-25857",
+        "CVE-2022-38749",
+        "CVE-2022-38750",
+        "CVE-2022-38751",
+        "CVE-2022-38752",
+        "CVE-2022-41854"
+      ]
+    },
+    {
+      "package": "org.apache.logging.log4j:log4j-core",
+      "version": "2.14.1",
+      "cves": [
+        "CVE-2021-44228",
+        "CVE-2021-45046",
+        "CVE-2021-45105",
+        "CVE-2021-44832"
+      ]
+    },
+    {
+      "package": "com.h2database:h2",
+      "version": "2.1.214",
+      "cves": [
+        "CVE-2022-45868"
+      ]
+    },
+    {
+      "package": "com.typesafe.play:play",
+      "version": "2.8.15",
+      "cves": [
+        "CVE-2022-31018",
+        "CVE-2022-31023"
+      ]
+    },
+    {
+      "package": "org.apache.commons:commons-text",
+      "version": "1.9",
+      "cves": [
+        "CVE-2022-42889"
+      ]
+    }
+  ]
+}
