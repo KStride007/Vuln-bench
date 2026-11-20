@@ -14,6 +14,7 @@ Usage:
   score.py --app vb-dotnet  results.sarif [more.sarif ...] [--json out.json]
   score.py --app groovy     --selftest
   (also: --app scala, --app objc)
+  score.py --app scala --blind blind-keys/scala.json results.sarif   (results from tools/make_blind.py output)
 """
 import argparse
 import json
@@ -57,10 +58,24 @@ def function_range(path, lang, name):
     return None
 
 
-def load_manifest(app_dir):
+def load_manifest(app_dir, blind_key=None):
     with open(os.path.join(ROOT, app_dir, "manifest.json")) as fh:
         manifest = json.load(fh)
     lang = manifest.get("language_key") or ("vb" if manifest["language"] == "VB.NET" else "groovy")
+    if blind_key:
+        # Scoring a blind copy (tools/make_blind.py): ranges come from the blind files, named opA/opB.
+        with open(blind_key) as fh:
+            key = json.load(fh)
+        by_id = {k["id"]: k for k in key["cases"]}
+        for case in manifest["cases"]:
+            k = by_id[case["id"]]
+            path = os.path.join(key["root"], k["blind_file"])
+            case["file"] = k["blind_file"]
+            case["bad_range"] = function_range(path, lang, k["bad_function"])
+            case["good_range"] = function_range(path, lang, k["good_function"])
+            if not case["bad_range"] or not case["good_range"]:
+                sys.exit("could not resolve blind ranges for %s in %s" % (case["id"], path))
+        return manifest
     for case in manifest["cases"]:
         path = os.path.join(ROOT, app_dir, case["file"])
         case["bad_range"] = function_range(path, lang, case["bad_function"])
@@ -186,6 +201,7 @@ def main():
     ap.add_argument("sarif", nargs="*")
     ap.add_argument("--json")
     ap.add_argument("--selftest", action="store_true")
+    ap.add_argument("--blind", help="key file from tools/make_blind.py; scores SARIF produced on the blind copy")
     ap.add_argument("--rule-cwe-map", help="JSON file mapping ruleId -> [CWE numbers]")
     ap.add_argument("--security-only", action="store_true",
                     help="ignore findings that carry no CWE (drops quality/style rules)")
@@ -194,7 +210,7 @@ def main():
     if args.rule_cwe_map:
         with open(args.rule_cwe_map) as fh:
             rule_map = {k: v for k, v in json.load(fh).items() if not k.startswith("_")}
-    manifest = load_manifest(args.app)
+    manifest = load_manifest(args.app, args.blind)
     if args.selftest:
         for mode in ("oracle", "noisy"):
             r = score(manifest, synth(manifest, mode))

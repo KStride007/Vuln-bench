@@ -105,3 +105,23 @@ were blocked, so **no SCA tool could be run** and the sbt build could not be exe
 | Semgrep OSS 1.186.0, community scala + generic rules | 2 of 12 (cases 01, 05) | 1 (case 05 good) | `tainted-sql-string` found case 01. `documentbuilder-dtd-enabled` flagged both case 05 methods, including the hardened one. |
 
 SARIF and score JSON are in `results/`.
+
+## Blind baseline scans (LLM scanners, human reviewers)
+
+This repo contains its own answer key: `manifest.json`, the README, `results/`, and the `bad`/`good` function
+and file names. A scanner pointed at the repo can read the answer instead of finding the flaw. To baseline
+an LLM scanner (Claude Code, Codex, any agent) or a reviewer, scan a blind copy:
+
+```
+python3 tools/make_blind.py --app scala        # or --all; writes blind-out/ and blind-keys/ (both git-ignored)
+# scan ONLY blind-out/app-... , ideally from a copy in a clean directory outside this repo
+python3 tools/score.py --app scala --blind blind-keys/scala.json your-findings.sarif
+```
+
+The blind copy drops the manifest, README, results and tools; renames the case files and classes to
+`HandlerNN`; renames the two functions per case to `opA` and `opB` in random order (so position gives
+nothing away); neutralizes routes and banners; and strips comments that mention vulnerabilities, ground truth
+or scanners. Planted dependencies are kept, since those are what SCA tools are tested on. The key
+(`blind-keys/scala.json`) records which of opA/opB is vulnerable; the scorer reads it, so scores are comparable
+to the tool results above. Re-run with `--seed N` for a different shuffle. Keep `blind-keys/` out of the
+scanner's reach: an agent that can walk up the directory tree can read it.
