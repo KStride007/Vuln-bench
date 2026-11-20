@@ -76,3 +76,17 @@ Each run scans a fresh temp copy of the blind app, so the scanner cannot see the
 scanner is limited to read-only tools. Use at least 3 runs and report the mean and the min/max spread. `openai`
 needs `OPENAI_API_KEY`. `python3 tools/llm_scan.py prompt` prints the exact shared prompt. Raw output, parsed
 findings, SARIF and the dependency list for each run are saved in `llm-results/`.
+
+### One repo per app, for connector-based scanners
+
+For a tool that scans a whole repository through a connector (for example a code-scanning platform linked to GitHub),
+generate one self-contained repo folder per app and push each as its own private repo. Coverage is then visible per
+language in the tool's own console, and a result with no findings can be told apart from a repo that was not scanned:
+
+```
+python3 tools/make_blind.py --all --repos-out scan-repos
+```
+
+Push each `scan-repos/vuln-bench-scan-*` folder as a separate repo, keep `blind-keys/` out of all of them, and score
+each repo's findings against its own key (`score.py --app APP --blind blind-keys/APP.json`). Keep the same `--seed`
+as earlier runs so results stay comparable.
